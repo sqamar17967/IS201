@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funny Joke Generator</title>
+  <style>
+    /* Global Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Helvetica', Arial, sans-serif;
+      background: linear-gradient(135deg, #f9fafc, #e6e9f0);
+      margin: 0;
+      padding-bottom: 50px;
+      color: #333;
+    }
+    /* Navigation Bar */
+    .navigation {
+      background-color: #4a90e2;
+      padding: 12px 20px;
+      text-align: right;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navigation a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    .navigation a:hover {
+      color: #ffeb3b;
+    }
+    /* Main Container */
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #ffffffcc;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.8em;
+      color: #333;
+      letter-spacing: 1px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    /* Button Styling */
+    button {
+      background-color: #4a90e2;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background-color: #357ab8;
+      transform: scale(1.05);
+    }
+    /* Joke Display Area */
+    #jokeDisplay {
+      margin-top: 30px;
+      font-size: 1.3em;
+      min-height: 50px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      color: #222;
+      padding: 10px;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #4a90e2;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+      font-size: 16px;
+      transition: text-decoration 0.3s ease;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation linking back to your scratch page -->
+  <div class="navigation">
+    <a href="cricket.html">Go to Cricket Page</a>
+  </div>
+  <div class="container">
+    <h1>Funny Joke Generator</h1>
+    <p>Click the button below to generate a random funny joke:</p>
+    <button id="jokeBtn">Generate Joke</button>
+    <div id="jokeDisplay"></div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Funny Jokes. <a href="cricket.html">Go to Cricket Page</a></p>
+  </footer>
+  <script>
+    // Array of funny jokes
+    const jokes = [
+      "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+      "I'm reading a book on anti-gravity. It's impossible to put down!",
+      "Did you hear about the restaurant on the moon? Great food, no atmosphere.",
+      "I would tell you a joke about construction, but I'm still working on it.",
+      "Why don't scientists trust atoms? Because they make up everything!",
+      "I used to play piano by ear, but now I use my hands.",
+      "Why did the scarecrow win an award? Because he was outstanding in his field.",
+      "I told my friend to stop impersonating a flamingo. He had to put his foot down.",
+      "What do you call fake spaghetti? An impasta!",
+      "I would tell you a chemistry joke, but I know I wouldn't get a reaction.",
+      "Why did the coffee file a police report? It got mugged.",
+      "What's orange and sounds like a parrot? A carrot.",
+      "Did you hear about the claustrophobic astronaut? He just needed a little space.",
+      "How does a penguin build its house? Igloos it together.",
+      "I used to have a job at a calendar factory but I got the sack because I took too many days off."
+    ];
+    
+    // Select the button and the display area
+    const jokeBtn = document.getElementById("jokeBtn");
+    const jokeDisplay = document.getElementById("jokeDisplay");
+    
+    // Function to display a random joke with fade animation
+    function displayJoke() {
+      // Fade out current joke
+      jokeDisplay.style.opacity = 0;
+      // Pick a random joke
+      const randomIndex = Math.floor(Math.random() * jokes.length);
+      // Change the joke text after a short delay for smooth transition
+      setTimeout(() => {
+        jokeDisplay.textContent = jokes[randomIndex];
+        jokeDisplay.style.opacity = 1;
+      }, 300);
+    }
+    
+    // Add click listener to the button
+    jokeBtn.addEventListener("click", displayJoke);
+    
+    // Optionally, display an initial joke on page load
+    window.addEventListener("load", displayJoke);
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,137 @@
+/* Reset and Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    /* Smooth gradient background and default font properties */
+    background: linear-gradient(135deg, #f8f9fa, #e0f7fa);
+    font-family: 'Roboto', sans-serif;
+    color: #2d3436;
+    line-height: 1.6;
+  }
+  
+  /* Anchor link styling */
+  a {
+    color: #0984e3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #d63031;
+  }
+  
+  /* Navigation styling */
+  nav {
+    background-color: #00cec9;
+    padding: 20px;
+    text-align: center;
+  }
+  nav a {
+    color: #ffffff;
+    margin: 0 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+  
+  /* Hero Section Styling */
+  .hero {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif; /* Specifying font family */
+    color: #2d3436; /* Specifying font color */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Information Section Styling */
+  .info {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    color: #2d3436;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Media Section Styling */
+  .media {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    color: #2d3436;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Journey Section Styling */
+  .journey {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    color: #2d3436;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Headings Styling */
+  h1, h2, h3 {
+    color: #00a8ff;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Paragraph Styling */
+  p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+  }
+  
+  /* List Styling */
+  ol, ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+  
+  
+  
+  /* YouTube Video Embed Styling */
+  iframe {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border: none;
+  }
+  /* Styling for the Tableau visualization container */
+.tableauPlaceholder {
+  max-width: 900px;                /* Match the width of your content blocks */
+  margin: 40px auto;               /* Center the container with vertical spacing */
+  padding: 20px;                   /* Add internal spacing */
+  background-color: #ffffff;       /* White background to match other sections */
+  border: 1px solid #ddd;          /* Light border for definition */
+  border-radius: 8px;              /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  overflow: hidden;                /* Ensure inner content doesn't spill out */
+  font-family: 'Roboto', sans-serif; /* Consistent font family */
+  color: #2d3436;                  /* Consistent font color */
+}
+
+.tableauPlaceholder object {
+  width: 100%;                     /* Ensure the viz fills the container's width */
+  height: auto;                    /* Let the height adjust responsively */
+}
