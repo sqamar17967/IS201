@@ -12,25 +12,26 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Helvetica', Arial, sans-serif;
-      background: linear-gradient(135deg, #f9fafc, #e6e9f0);
-      margin: 0;
-      padding-bottom: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
       color: #333;
+      padding-bottom: 80px;
+      overflow-x: hidden;
     }
     /* Navigation Bar */
     .navigation {
-      background-color: #4a90e2;
-      padding: 12px 20px;
+      background-color: #357ABD;
+      padding: 14px 20px;
       text-align: right;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .navigation a {
       color: #fff;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       transition: color 0.3s ease;
     }
@@ -39,69 +40,93 @@
     }
     /* Main Container */
     .container {
-      max-width: 600px;
-      margin: 50px auto;
-      background-color: #ffffffcc;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 650px;
+      margin: 80px auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
       text-align: center;
+      animation: fadeIn 1s ease-out forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(30px); }
     }
     h1 {
       margin-bottom: 20px;
-      font-size: 2.8em;
-      color: #333;
+      font-size: 3em;
+      color: #222;
       letter-spacing: 1px;
     }
     p {
-      font-size: 1.2em;
+      font-size: 1.3em;
       margin-bottom: 30px;
       color: #555;
     }
     /* Button Styling */
     button {
-      background-color: #4a90e2;
+      background: linear-gradient(135deg, #4a90e2, #357ABD);
       color: #fff;
       border: none;
-      padding: 12px 25px;
-      font-size: 16px;
-      border-radius: 5px;
+      padding: 14px 30px;
+      font-size: 18px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      transition: background 0.4s, transform 0.3s, box-shadow 0.3s;
     }
     button:hover {
-      background-color: #357ab8;
-      transform: scale(1.05);
+      background: linear-gradient(135deg, #357ABD, #2c6fb3);
+      transform: scale(1.07);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     /* Joke Display Area */
     #jokeDisplay {
       margin-top: 30px;
-      font-size: 1.3em;
-      min-height: 50px;
+      font-size: 1.4em;
+      min-height: 60px;
       opacity: 0;
-      transition: opacity 0.5s ease;
-      color: #222;
-      padding: 10px;
+      transition: opacity 0.6s ease;
+      color: #111;
+      padding: 15px;
+      border-left: 4px solid #4a90e2;
+      background: #f7f9fc;
+      border-radius: 6px;
+      margin-top: 35px;
     }
     /* Footer */
     footer {
       text-align: center;
-      padding: 15px;
-      background-color: #4a90e2;
+      padding: 18px 10px;
+      background-color: #357ABD;
       color: #fff;
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
+      font-size: 16px;
     }
     footer a {
       color: #ffd700;
       text-decoration: none;
-      font-size: 16px;
+      font-weight: bold;
       transition: text-decoration 0.3s ease;
     }
     footer a:hover {
       text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .container {
+        margin: 40px 20px;
+        padding: 25px;
+      }
+      h1 {
+        font-size: 2.4em;
+      }
+      p, #jokeDisplay {
+        font-size: 1.1em;
+      }
     }
   </style>
 </head>
@@ -138,30 +163,28 @@
       "How does a penguin build its house? Igloos it together.",
       "I used to have a job at a calendar factory but I got the sack because I took too many days off."
     ];
-    
+
     // Select the button and the display area
     const jokeBtn = document.getElementById("jokeBtn");
     const jokeDisplay = document.getElementById("jokeDisplay");
-    
+
     // Function to display a random joke with fade animation
     function displayJoke() {
-      // Fade out current joke
       jokeDisplay.style.opacity = 0;
-      // Pick a random joke
       const randomIndex = Math.floor(Math.random() * jokes.length);
-      // Change the joke text after a short delay for smooth transition
       setTimeout(() => {
         jokeDisplay.textContent = jokes[randomIndex];
         jokeDisplay.style.opacity = 1;
       }, 300);
     }
-    
-    // Add click listener to the button
+
     jokeBtn.addEventListener("click", displayJoke);
-    
-    // Optionally, display an initial joke on page load
-    window.addEventListener("load", displayJoke);
+
+    window.addEventListener("load", () => {
+      setTimeout(displayJoke, 400);
+    });
   </script>
 </body>
 </html>
+
 
