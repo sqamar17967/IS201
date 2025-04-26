@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Funny Joke Generator</title>
+  <title>Funny Joke and Riddle Generator</title>
   <style>
-    /* Global Styling */
     * {
       margin: 0;
       padding: 0;
@@ -15,10 +14,9 @@
       font-family: 'Helvetica Neue', Arial, sans-serif;
       background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
       color: #333;
-      padding-bottom: 80px;
+      padding-bottom: 100px;
       overflow-x: hidden;
     }
-    /* Navigation Bar */
     .navigation {
       background-color: #357ABD;
       padding: 14px 20px;
@@ -38,7 +36,6 @@
     .navigation a:hover {
       color: #ffeb3b;
     }
-    /* Main Container */
     .container {
       max-width: 650px;
       margin: 80px auto;
@@ -65,7 +62,6 @@
       margin-bottom: 30px;
       color: #555;
     }
-    /* Button Styling */
     button {
       background: linear-gradient(135deg, #4a90e2, #357ABD);
       color: #fff;
@@ -75,14 +71,14 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background 0.4s, transform 0.3s, box-shadow 0.3s;
+      margin: 10px;
     }
     button:hover {
       background: linear-gradient(135deg, #357ABD, #2c6fb3);
       transform: scale(1.07);
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    /* Joke Display Area */
-    #jokeDisplay {
+    #jokeDisplay, #riddleDisplay {
       margin-top: 30px;
       font-size: 1.4em;
       min-height: 60px;
@@ -95,7 +91,6 @@
       border-radius: 6px;
       margin-top: 35px;
     }
-    /* Footer */
     footer {
       text-align: center;
       padding: 18px 10px;
@@ -124,14 +119,13 @@
       h1 {
         font-size: 2.4em;
       }
-      p, #jokeDisplay {
+      p, #jokeDisplay, #riddleDisplay {
         font-size: 1.1em;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation linking back to your scratch page -->
   <div class="navigation">
     <a href="cricket.html">Go to Cricket Page</a>
   </div>
@@ -140,12 +134,17 @@
     <p>Click the button below to generate a random funny joke:</p>
     <button id="jokeBtn">Generate Joke</button>
     <div id="jokeDisplay"></div>
+
+    <h1>Riddle Generator</h1>
+    <p>Click the button below to generate a random riddle:</p>
+    <button id="riddleBtn">Generate Riddle</button>
+    <div id="riddleDisplay"></div>
   </div>
   <footer>
-    <p>&copy; 2025 Funny Jokes. <a href="cricket.html">Go to Cricket Page</a></p>
+    <p>&copy; 2025 Funny Jokes and Riddles. <a href="cricket.html">Go to Cricket Page</a></p>
   </footer>
+
   <script>
-    // Array of funny jokes
     const jokes = [
       "I told my wife she was drawing her eyebrows too high. She looked surprised.",
       "I'm reading a book on anti-gravity. It's impossible to put down!",
@@ -161,14 +160,27 @@
       "What's orange and sounds like a parrot? A carrot.",
       "Did you hear about the claustrophobic astronaut? He just needed a little space.",
       "How does a penguin build its house? Igloos it together.",
-      "I used to have a job at a calendar factory but I got the sack because I took too many days off."
+      "I used to have a job at a calendar factory but I got the sack because I took too many days off.",
+      "Why did the math book look sad? Because it had too many problems.",
+      "Parallel lines have so much in common. It’s a shame they’ll never meet."
     ];
 
-    // Select the button and the display area
+    const riddles = [
+      "What has to be broken before you can use it? An egg.",
+      "I’m tall when I’m young, and I’m short when I’m old. What am I? A candle.",
+      "What month of the year has 28 days? All of them.",
+      "What is full of holes but still holds water? A sponge.",
+      "What question can you never answer yes to? Are you asleep yet?",
+      "What is always in front of you but can’t be seen? The future.",
+      "There’s a one-story house in which everything is yellow. What color are the stairs? There aren’t any—it’s a one-story house.",
+      "What can you break, even if you never pick it up or touch it? A promise."
+    ];
+
     const jokeBtn = document.getElementById("jokeBtn");
     const jokeDisplay = document.getElementById("jokeDisplay");
+    const riddleBtn = document.getElementById("riddleBtn");
+    const riddleDisplay = document.getElementById("riddleDisplay");
 
-    // Function to display a random joke with fade animation
     function displayJoke() {
       jokeDisplay.style.opacity = 0;
       const randomIndex = Math.floor(Math.random() * jokes.length);
@@ -178,7 +190,17 @@
       }, 300);
     }
 
+    function displayRiddle() {
+      riddleDisplay.style.opacity = 0;
+      const randomIndex = Math.floor(Math.random() * riddles.length);
+      setTimeout(() => {
+        riddleDisplay.textContent = riddles[randomIndex];
+        riddleDisplay.style.opacity = 1;
+      }, 300);
+    }
+
     jokeBtn.addEventListener("click", displayJoke);
+    riddleBtn.addEventListener("click", displayRiddle);
 
     window.addEventListener("load", () => {
       setTimeout(displayJoke, 400);
