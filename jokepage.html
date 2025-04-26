@@ -39,13 +39,19 @@
     .container {
       max-width: 650px;
       margin: 80px auto;
+      text-align: center;
+      animation: fadeIn 1s ease-out forwards;
+      opacity: 0;
+    }
+    .box {
       background: rgba(255, 255, 255, 0.95);
       padding: 40px 30px;
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-      text-align: center;
-      animation: fadeIn 1s ease-out forwards;
-      opacity: 0;
+      margin-bottom: 30px;
+    }
+    .riddle-box {
+      background: rgba(255, 240, 200, 0.95);
     }
     @keyframes fadeIn {
       to { opacity: 1; transform: translateY(0); }
@@ -53,13 +59,13 @@
     }
     h1 {
       margin-bottom: 20px;
-      font-size: 3em;
+      font-size: 2.5em;
       color: #222;
       letter-spacing: 1px;
     }
     p {
-      font-size: 1.3em;
-      margin-bottom: 30px;
+      font-size: 1.2em;
+      margin-bottom: 20px;
       color: #555;
     }
     button {
@@ -79,8 +85,8 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     #jokeDisplay, #riddleDisplay {
-      margin-top: 30px;
-      font-size: 1.4em;
+      margin-top: 20px;
+      font-size: 1.3em;
       min-height: 60px;
       opacity: 0;
       transition: opacity 0.6s ease;
@@ -89,7 +95,10 @@
       border-left: 4px solid #4a90e2;
       background: #f7f9fc;
       border-radius: 6px;
-      margin-top: 35px;
+    }
+    .riddle-box #riddleDisplay {
+      border-left-color: #ff9800;
+      background: #fff8e1;
     }
     footer {
       text-align: center;
@@ -114,13 +123,10 @@
     @media (max-width: 600px) {
       .container {
         margin: 40px 20px;
-        padding: 25px;
+        padding: 10px;
       }
       h1 {
-        font-size: 2.4em;
-      }
-      p, #jokeDisplay, #riddleDisplay {
-        font-size: 1.1em;
+        font-size: 2em;
       }
     }
   </style>
@@ -130,20 +136,22 @@
     <a href="cricket.html">Go to Cricket Page</a>
   </div>
   <div class="container">
-    <h1>Funny Joke Generator</h1>
-    <p>Click the button below to generate a random funny joke:</p>
-    <button id="jokeBtn">Generate Joke</button>
-    <div id="jokeDisplay"></div>
-
-    <h1>Riddle Generator</h1>
-    <p>Click the button below to generate a random riddle:</p>
-    <button id="riddleBtn">Generate Riddle</button>
-    <div id="riddleDisplay"></div>
+    <div class="box">
+      <h1>Funny Joke Generator</h1>
+      <p>Click the button below to generate a random funny joke:</p>
+      <button id="jokeBtn">Generate Joke</button>
+      <div id="jokeDisplay"></div>
+    </div>
+    <div class="box riddle-box">
+      <h1>Riddle Generator</h1>
+      <p>Click the button below to generate a random riddle:</p>
+      <button id="riddleBtn">Generate Riddle</button>
+      <div id="riddleDisplay"></div>
+    </div>
   </div>
   <footer>
     <p>&copy; 2025 Funny Jokes and Riddles. <a href="cricket.html">Go to Cricket Page</a></p>
   </footer>
-
   <script>
     const jokes = [
       "I told my wife she was drawing her eyebrows too high. She looked surprised.",
@@ -208,5 +216,6 @@
   </script>
 </body>
 </html>
+
 
 
